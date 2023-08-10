@@ -9,7 +9,7 @@ namespace quiz11.Question
     public interface IQuestion
     {
         void DisplayQuestion();
-        bool ValidateInput(string input);
+        bool ProcessInput(string input, out bool correct);
         void OnCorrectAnswer();
         void OnIncorrectAnswer();
     }

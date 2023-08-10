@@ -9,22 +9,15 @@ namespace quiz11.Question.MultiChoice
     public class MultiChoiceQuestion : IQuestion
     {
         public string Question;
-        MultiChoiceAnswer CorrectAnswer;
-        public List<MultiChoiceAnswer> IncorrectAnswers = new List<MultiChoiceAnswer>();
-
-        public MultiChoiceQuestion(string question, MultiChoiceAnswer correctAnswer, params MultiChoiceAnswer[] incorrectAnswers)
-        {
-            Question = question;
-            CorrectAnswer = correctAnswer;
-            IncorrectAnswers.AddRange(incorrectAnswers);
-        }
+        public MultiChoiceAnswer[] Choices;
+        public int CorrectAnswerIndex;
 
         public void DisplayQuestion()
         {
             throw new NotImplementedException();
         }
-        
-        public bool ValidateInput(string input)
+
+        public bool ProcessInput(string input, out bool correct)
         {
             throw new NotImplementedException();
         }
