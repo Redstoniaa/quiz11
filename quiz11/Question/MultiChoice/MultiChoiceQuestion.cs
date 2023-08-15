@@ -14,12 +14,34 @@ namespace quiz11.Question.MultiChoice
 
         public void DisplayQuestion()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(Question);
+            for (int i = 0; i < Choices.Length; i++)
+            {
+                MultiChoiceAnswer answer = Choices[i];
+                Console.WriteLine($"[{i}] {answer.Answer}");
+            }
         }
 
         public bool ProcessInput(string input, out bool correct)
         {
-            throw new NotImplementedException();
+            if (int.TryParse(input, out int answer)
+                && answer > 0
+                && answer <= Choices.Length)
+            {
+                if (answer == CorrectAnswerIndex)
+                {
+                    correct = true;
+                    return true;
+                }
+                else
+                {
+                    correct = false;
+                    return true;
+                }
+            }
+
+            correct = false;
+            return false;
         }
 
         public void OnCorrectAnswer()
